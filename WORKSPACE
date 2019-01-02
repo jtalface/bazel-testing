@@ -27,6 +27,9 @@ git_repository(
     tag = "0.16.2",
 )
 
+load("@build_bazel_rules_nodejs//:package.bzl", "rules_nodejs_dependencies")
+rules_nodejs_dependencies()
+
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "npm_install")
 
 node_repositories(package_json = ["//:package.json"])
