@@ -36,6 +36,7 @@ node_repositories(package_json = ["//:package.json"])
 npm_install(
     name = "npm_deps",
     package_json = "//:package.json",
+    package_lock_json = "//:package-lock.json",
 )
 
 load(
