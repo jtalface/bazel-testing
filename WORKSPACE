@@ -1,3 +1,5 @@
+workspace(name = "bazel_testing")
+
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
@@ -7,13 +9,7 @@ git_repository(
     tag = "0.6.0",
 )
 
-# Can't seem to find the tag for this repo, not sure why
-#git_repository(
-#    name = "io_bazel_rules_docker",
-#    remote = "https://github.com/bazelbuild/rules_docker.git",
-#    tag = "0.6.0",
-#)
-
+# git_repository doesn't find the tag for some reason, so using http_archive for now
 http_archive(
     name = "io_bazel_rules_docker",
     strip_prefix = "rules_docker-0.6.0",
@@ -30,13 +26,13 @@ git_repository(
 load("@build_bazel_rules_nodejs//:package.bzl", "rules_nodejs_dependencies")
 rules_nodejs_dependencies()
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "npm_install")
-
+load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
 node_repositories(package_json = ["//:package.json"])
-npm_install(
-    name = "npm_deps",
+
+yarn_install(
+    name = "npm",
     package_json = "//:package.json",
-    package_lock_json = "//:package-lock.json",
+    yarn_lock = "//:yarn.lock",
 )
 
 load(
@@ -45,4 +41,3 @@ load(
 )
 
 _nodejs_image_repos()
-
