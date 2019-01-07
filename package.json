@@ -1,8 +1,5 @@
 {
-  "name": "bazel-testing",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/app.js",
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "jsesc": "~0.3.0"
+  }
 }
