@@ -12,15 +12,15 @@ git_repository(
 # git_repository doesn't find the tag for some reason, so using http_archive for now
 http_archive(
     name = "io_bazel_rules_docker",
-    strip_prefix = "rules_docker-0.6.0",
-    urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.6.0.tar.gz"],
-    sha256 = "c0e9d27e6ca307e4ac0122d3dd1df001b9824373fb6fb8627cd2371068e51fef",
+    sha256 = "aed1c249d4ec8f703edddf35cbe9dfaca0b5f5ea6e4cd9e83e99f3b0d1136c3d",
+    strip_prefix = "rules_docker-0.7.0",
+    urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.7.0.tar.gz"],
 )
 
 git_repository(
     name = "build_bazel_rules_nodejs",
     remote = "https://github.com/bazelbuild/rules_nodejs.git",
-    tag = "0.16.2",
+    tag = "0.16.5",
 )
 
 load("@build_bazel_rules_nodejs//:package.bzl", "rules_nodejs_dependencies")
