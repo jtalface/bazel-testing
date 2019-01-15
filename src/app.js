@@ -1,14 +1,13 @@
-const http = require('http');
+const {WebClient} = require("@slack/client");
 
-const hostname = '127.0.0.1';
-const port = 3000;
+module.exports = function(robot) {
+  const webClient = new WebClient(robot.adapter.options.token);
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+  robot.respond(/testing/i, (res) => res.send("I am yet another new test message!"));
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+  postBuildNotifications(robot, webClient);
+}
+
+function postBuildNotifications(robot, webClient) {
+  // functionality snipped for test case
+}

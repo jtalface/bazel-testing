@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "jsesc": "~0.3.0"
+    "@slack/client": "^4.8.0",
+    "hubot": "^3.2.0",
+    "hubot-slack": "^4.6.0",
+    "source-map-support": "^0.5.10"
   }
 }
